@@ -1,0 +1,118 @@
+import java.util.*;
+import java.util.Random;
+public class man
+{
+    public static void main(String[] args)
+    {
+        Scanner sc= new Scanner(System.in);
+        String movie;
+        int x=0,y=0,r=1,w=0;
+        movie=sc.nextLine();
+        movie=movie.toUpperCase();
+        System.out.println("Enter the movie");
+        System.out.printf("\n");
+        char[] ar = new char[100];
+        ar[0]='B'; ar[1]='O';ar[2]='L';ar[3]='L';ar[4]='Y';ar[5]='W';ar[6]='O';ar[7]='O';ar[8]='D';
+        char[] rmovie = new char[1000];
+        int a=0,b=0,v=0,d=0;
+        int ac;
+        int ml=movie.length();
+        char guess;
+        while(x!=9)
+        {
+        if(r==1)
+        {
+        for(int j=0;j<1000;j++)
+        {
+            rmovie[j]='*';
+        }
+        r=0;
+        }
+        for(int i=0;i<movie.length();i++)
+        {
+            if((movie.charAt(i)=='A')||(movie.charAt(i)=='E')||(movie.charAt(i)=='I')||(movie.charAt(i)=='O')||(movie.charAt(i)=='U')||(movie.charAt(i)==' '))
+            {
+                rmovie[i]=movie.charAt(i);
+            }
+            else
+            {
+                rmovie[i]='_';
+                a++;
+            }
+        }
+        System.out.println("Below is your movie puzzle:-");
+        for(int i=0;i<movie.length();i++)
+        {
+              
+                System.out.printf("%c ",rmovie[i]);
+        }
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println("B O L L Y W O O D");
+        System.out.println();
+        
+        v=0;
+        while(b<a)
+        {
+            System.out.println("Enter your guess:");
+        guess='0';
+        guess=sc.next().charAt(0);
+        guess=Character.toUpperCase(guess);
+        if((movie.charAt(v)==guess)&&(rmovie[v]=='_'))
+        {
+            System.out.println("Well Done correct guess: " +guess);
+             rmovie[v]=(char)guess;
+             v++;
+             b++;
+        }
+        else
+         {
+             System.out.println("Wrong guess: " +guess);
+             for(int k=0;k<=w;k++)
+             {
+                 if(k==w)
+                 {
+                   ar[k]='#';
+                 }
+             }
+             for(int k=0;k<9;k++)
+             {
+                 System.out.printf("%c ",ar[k]);
+             }
+            System.out.println();
+            System.out.println();
+             w++;
+         }
+         if(w>=9)
+         {
+             b=a+5;
+         }
+        if((movie.charAt(v)=='A')||(movie.charAt(v)=='E')||(movie.charAt(v)=='I')||(movie.charAt(v)=='O')||(movie.charAt(v)=='U'))
+        {
+                v++;
+        }
+        for(int i=0;i<movie.length();i++)
+        {
+                System.out.printf("%c ",rmovie[i]);
+        }
+        System.out.println();
+        System.out.println();
+        }
+        if(b==a)
+        {
+            System.out.println("YOU  WIN");
+        }
+        else
+        {
+            System.out.println("YOU LOSE");
+        }
+        for(int i=0;i<movie.length();i++)
+        {
+                System.out.printf("%c ",rmovie[i]);
+        }
+        x=9;
+        }
+    }
+}
